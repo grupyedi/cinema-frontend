@@ -1,22 +1,14 @@
 {
-  "name": "electron-quick-start",
+  "name": "cinema-frontend-init",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron js/main.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Melihcan Çilek",
+  "license": "ISC",
   "devDependencies": {
-    "electron": "^9.0.2"
+    "electron": "^9.0.4"
   }
 }
