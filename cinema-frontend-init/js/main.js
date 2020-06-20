@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 
+
 function createWindow () {
     const win = new BrowserWindow({
         width: 1024,
@@ -9,12 +10,13 @@ function createWindow () {
         }
     })
 
-    win.loadFile('..//main.html')
+    win.loadFile('../pages/main.html')
 
     win.webContents.openDevTools()
 
     win.setResizable(false);
 }
+
 
 app.whenReady().then(createWindow)
 
