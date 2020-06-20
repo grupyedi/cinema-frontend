@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^9.0.4"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0"
   }
 }
