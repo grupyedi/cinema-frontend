@@ -1,22 +1,23 @@
 const { app, BrowserWindow } = require('electron')
 
-
+let win;
 function createWindow () {
-    const win = new BrowserWindow({
-        width: 1024,
-        height: 768,
+     win = new BrowserWindow({
+        width: 1366,
+        height: 1000,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            enableRemoteModule: true
         }
     })
-
-    win.loadFile('../pages/main.html')
+    win.loadFile('../pages/choosingCinema.html')
 
     win.webContents.openDevTools()
 
     win.setResizable(false);
-}
 
+
+}
 
 app.whenReady().then(createWindow)
 

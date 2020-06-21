@@ -4,14 +4,59 @@
     <meta charset="UTF-8">
     <title>ChooseCinema</title>
 </head>
-<link rel = "stylesheet"
-      type = "text/css"
-      href = "../css/loader.css" />
+<link rel="stylesheet" type = "text/css" href = "../css/loader.css" />
+<link rel="stylesheet" type="text/css" href="../css/buttons.css">
+<link rel="stylesheet" type="text/css" href="../css/profilePhoto.css">
+<link rel="stylesheet" type="text/css" href="../css/contents.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <script src="../js/loader.js"></script>
+<script src="../js/openWindow.js"></script>
+<script>
+    localStorage.setItem('isLogin', 'false');
+</script>
 <body onload="myFunction()" style="margin:0;">
     <div id="loader"></div>
-    <h1 style="display:none;" id="myDiv" class="animate-bottom">
-        Choose Cinema
-    </h1>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <div>
+            <div class="left-btn" >
+                <button class="btn" id="profile-button" onclick="openWindow('profile-button', 'islogin.html')">
+                    <img id="profile-photo" src="../assets/iconfinder_photo_370076.png" alt="profile-photo">
+                </button>
+            </div>
+            <div class="right-btn">
+                <button class="btn">Logout</button>
+            </div>
+        </div>
+        <h1 style="text-align: center">
+            Choose Cinema
+            <p id="isLogin"></p>
+        </h1>
+        <div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"></div>
+        </div>
+    </div>
+
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script>
+         var images = ['../assets/burak.png', '../assets/cinemas/best-kids-movies-2018-spider-man-1536242887.jpg', '../assets/cinemas/best-movies-for-kids-2018-mary-poppins-1527029417.jpg','../assets/cinemas/MV5BOTVhMzYxNjgtYzYwOC00MGIwLWJmZGEtMjgwMzgxMWUwNmRhXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,640,1000_AL_.jpg'];
+         buildcarousel("carouselExampleIndicators", images)
+         function buildcarousel(id,images){
+         var html = $("#"+id).append(`<ol class="carousel-indicators"></ol><div class="carousel-inner"></div>      <a class="carousel-control-prev" href="#${id}" role="button" data-slide="prev">          <span class="carousel-control-prev-icon" aria-hidden="true"></span>          <span class="sr-only">Previous</span>      </a>      <a class="carousel-control-next" href="#${id}" role="button" data-slide="next">          <span class="carousel-control-next-icon" aria-hidden="true"></span>          <span class="sr-only">Next</span>      </a>`);
+         let indicators = html.find('.carousel-indicators');
+         let carousel = html.find('.carousel-inner')
+         images.forEach((e,i)=>{
+            var activeclass = i == 0 ? "active":"";
+            indicators.append('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'" class="'+activeclass+'"></li>');
+            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text">'+e+'</div></div></div></div></div>');
+         })
+
+ }
+</script>
 </body>
 </html>
