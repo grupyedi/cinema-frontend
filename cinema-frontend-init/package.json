@@ -9,9 +9,11 @@
   "author": "Melihcan Çilek",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^9.0.4"
+    "bootstrap": "^4.0.0-beta",
+    "electron": "^9.0.4",
+    "jquery": "^3.5.1"
   },
   "dependencies": {
-    "app-root-path": "^3.0.0"
+    "popper.js": "^1.16.1"
   }
 }
