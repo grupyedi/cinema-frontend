@@ -45,22 +45,23 @@
     <script>
          var images = ['../assets/burak.png', '../assets/cinemas/best-kids-movies-2018-spider-man-1536242887.jpg', '../assets/cinemas/best-movies-for-kids-2018-mary-poppins-1527029417.jpg','../assets/cinemas/MV5BOTVhMzYxNjgtYzYwOC00MGIwLWJmZGEtMjgwMzgxMWUwNmRhXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SY1000_CR0,0,640,1000_AL_.jpg'];
          var times = [12, 13,15,16]
-         var prices = [6.45, 9.99, 11.98, 20]
          buildcarousel("carouselExampleIndicators", images)
          function buildcarousel(id,images){
          var html = $("#"+id).append(`<ol class="carousel-indicators"></ol><div class="carousel-inner"></div>      <a class="carousel-control-prev" href="#${id}" role="button" data-slide="prev">          <span class="carousel-control-prev-icon" aria-hidden="true"></span>          <span class="sr-only">Previous</span>      </a>      <a class="carousel-control-next" href="#${id}" role="button" data-slide="next">          <span class="carousel-control-next-icon" aria-hidden="true"></span>          <span class="sr-only">Next</span>      </a>`);
          let indicators = html.find('.carousel-indicators');
          let carousel = html.find('.carousel-inner')
          images.forEach((e,i)=>{
-            allTimes = ""
-            for (let index = 0; index < times.length; index++) {allTimes += "<button onclick='goToCinema()' style='cursor: pointer;'>" + times[index] + "\n" + prices[i] + " ₺ </button>"}
+            radioButtons = '<form><label class="radio-inline"><input type="radio" name="optradio" checked>Option 1</label><label class="radio-inline"><input type="radio" name="optradio">Option 2</label><label class="radio-inline"><input type="radio" name="optradio">Option 3</label></form>';
+            allTimes = '<div id="outer">'
+            for (let index = 0; index < times.length; index++) {allTimes += '<button onclick="chooseCinema()" style="cursor: pointer;">' + times[index] +' </button>'}
+            allTimes += '</div>'
             var activeclass = i == 0 ? "active":"";
             indicators.append('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'" class="'+activeclass+'"></li>');
-            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text"><h4>dsadasdasdasdas</h4>'+ allTimes+ '</div></div></div></div></div>');
+            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text"><h4>'+radioButtons +'</h4>'+ allTimes+ '</div></div></div></div></div>');
          })
 
         }      
-        function goToCinema() {
+        function chooseCinema() {
             
         }
     </script>

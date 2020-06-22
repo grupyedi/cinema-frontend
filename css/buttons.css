@@ -2,3 +2,12 @@
      float: left;
      cursor: pointer;
 }
+
+#outer {
+     width:100%;
+     text-align: center;
+}
+
+.btn btn-primary btn-lg btn-block{
+     display: inline-block;
+}
