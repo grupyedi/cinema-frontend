@@ -1,3 +1,5 @@
+const { remote } = require("electron");
+
 function moveToChooseCinema() {
     var username = document.getElementById("username-input").value;
     var password = document.getElementById("password-input").value;
@@ -6,11 +8,10 @@ function moveToChooseCinema() {
     localStorage.setItem("password", password);
     
     console.log(username + " " + password);
-    if(username === "melihcanclk" && password === "123"){
+    if(username === "foo" && password === "123"){
         localStorage.setItem('isLogin', 'true')
         window.open('', '_self', '');
         window.close();
-        console.log(localStorage.getItem('islogin'))
         return true;
     }else{
         return false;

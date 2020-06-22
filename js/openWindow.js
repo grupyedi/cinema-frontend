@@ -8,7 +8,7 @@ function checkIsLogin(){
     return isLogin === 'true';
 }
 
-function openPopup(nameOfButton, nameOfurl) {
+function openPopup(nameOfButton, ifYes, ifNo) {
     console.log(checkIsLogin());
     const notifyBtn = document.getElementById(nameOfButton)
         notifyBtn.addEventListener('click', function (e) {
@@ -17,7 +17,7 @@ function openPopup(nameOfButton, nameOfurl) {
                 e.stopImmediatePropagation();
                 console.log('clicked')
                 e.preventDefault()
-                const modalPath = path.join('file://', __dirname, nameOfurl)
+                const modalPath = path.join('file://', __dirname, ifYes)
                 let win = new BrowserWindow({ width: 400, height: 200, frame:false, alwaysOnTop: true, transparent:true, show:false, webPreferences: {
                     nodeIntegration:true
                 } })
@@ -31,7 +31,9 @@ function openPopup(nameOfButton, nameOfurl) {
                     win.show()
                 })
             }else{
-                console.log('already login')
+                let win = remote.getCurrentWindow()
+                const modalPath = path.join('file://', __dirname, ifNo)
+                win.loadURL(modalPath)
             }
         })
     

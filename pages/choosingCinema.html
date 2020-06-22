@@ -14,7 +14,7 @@
 <script>
     localStorage.setItem('isLogin', 'false');
 </script>
-<body onload="myFunction()" style="margin:0;">
+<body onload="myFunction();" style="margin:0;">
     <div id="loader"></div>
     <div style="display:none;" id="myDiv" class="animate-bottom">
         <div>
@@ -23,9 +23,6 @@
                     <img id="profile-photo" src="../assets/iconfinder_photo_370076.png" alt="profile-photo">
                 </button>
             </div>
-            <div class="right-btn">
-                <button class="btn">Logout</button>
-            </div>
         </div>
         <h1 style="text-align: center">
             Choose Cinema
@@ -33,11 +30,10 @@
         </h1>
         <div>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"></div>
-            <button onclick="showIsLogin()"></button>
         </div>
     </div>
     <script> 
-        openPopup('profile-button', './islogin.html')
+        openPopup('profile-button', './islogin.html', './profile.html')
     </script>   
     <script>
         window.jQuery = window.$ = require('jquery');
@@ -60,9 +56,10 @@
          })
 
         }
-        function showIsLogin(){
-            console.log(localStorage.getItem('isLogin'))
-        }
+     
+      
+
+
 </script>
 </body>
 </html>
