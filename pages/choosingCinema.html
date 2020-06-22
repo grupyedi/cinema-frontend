@@ -33,6 +33,7 @@
         </h1>
         <div>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"></div>
+            <button onclick="showIsLogin()"></button>
         </div>
     </div>
     <script> 
@@ -58,7 +59,10 @@
             carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text">'+e+'</div></div></div></div></div>');
          })
 
- }
+        }
+        function showIsLogin(){
+            console.log(localStorage.getItem('isLogin'))
+        }
 </script>
 </body>
 </html>
