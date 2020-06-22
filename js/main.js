@@ -15,8 +15,6 @@ function createWindow () {
     win.webContents.openDevTools()
 
     win.setResizable(false);
-
-
 }
 
 app.whenReady().then(createWindow)
