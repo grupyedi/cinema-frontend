@@ -19,7 +19,7 @@
     <div style="display:none;" id="myDiv" class="animate-bottom">
         <div>
             <div class="left-btn" >
-                <button class="btn" id="profile-button" onclick="openWindow('profile-button', 'islogin.html')">
+                <button class="btn" id="profile-button">
                     <img id="profile-photo" src="../assets/iconfinder_photo_370076.png" alt="profile-photo">
                 </button>
             </div>
@@ -35,7 +35,9 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"></div>
         </div>
     </div>
-
+    <script> 
+        openPopup('profile-button', './islogin.html')
+    </script>   
     <script>
         window.jQuery = window.$ = require('jquery');
     </script>

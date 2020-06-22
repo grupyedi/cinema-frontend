@@ -6,9 +6,21 @@
 </head>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <body>
-    <p>Do you wan to log in?</p>
-    <button type="button" id="yes-button" class="btn btn-primary btn-lg btn-block">Yes</button>
-    <button type="button" id="no-button" class="btn btn-secondary btn-lg btn-block" onclick="window.open('', '_self', '');window.close();">No</button>
+    <p>Do you want to log in?</p>
+    <button type="button" id="yes-button" class="btn btn-primary btn-lg btn-block" onclick="openLogin()">Yes</button>
+    <button type="button" id="no-button" class="btn btn-secondary btn-lg btn-block" onclick="closeScreen()">No</button>
 </body>
-
+<script>
+    function openLogin() {
+       closeScreen();
+       function openLoginScreen(){
+            let window = require('electron').BrowserWindow;
+            window.open('https://www.google.com');
+        }
+    }
+    function closeScreen(){
+        window.open('', '_self', '');
+        window.close();
+    }
+</script>
 </html>

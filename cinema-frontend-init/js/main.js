@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, remote } = require('electron')
 
 let win;
 function createWindow () {
@@ -15,8 +15,6 @@ function createWindow () {
     win.webContents.openDevTools()
 
     win.setResizable(false);
-
-
 }
 
 app.whenReady().then(createWindow)
