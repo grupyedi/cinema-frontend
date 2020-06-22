@@ -2,11 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>ChooseCinema</title>
 </head>
-<body>
-    <h1>
-        Profile
-    </h1>
+<script src="../js/createProfile.js"></script>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/profile.css">
+<body >
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <button class="buttonBck" onclick="goBack()">Go Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <div class="container padding-bottom-3x mb-2">
+        <div class="row">
+            <div class="col-lg-4">
+                <aside class="user-info-wrapper">
+                    <div class="user-cover">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <div id="profile-picture"></div>
+                        <div class="user-data">
+                            <h2 id="username"></h2><span></h2>Points</h2><span id="points"></span>
+                        </div>
+                    </div>
+                </aside>
+                <nav class="list-group">
+                    <a class="list-group-item with-badge active" href="#"><i class=" fa fa-th"></i>Movies Entered<span class="badge badge-primary badge-pill"></span></a>
+                </nav>
+            </div>
+            <div class="col-lg-8">
+                <div class="padding-top-2x mt-2 hidden-lg-up"></div>
+                <div class="table-responsive wishlist-table margin-bottom-none">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>History</th>
+                                <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear History</a></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <tbody>
+                        <tr>
+                            <div id="history"></div>
+                        </tr>
+                    </tbody>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+        show_images("profile-picture")
+        show_username("username")
+        get_points("points")
+        get_history()
+    </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    </script>
+    
 </body>
 </html>

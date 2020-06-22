@@ -1,2 +1,4 @@
-.left-btn { float: left; }
-.right-btn { float: right; }
+#profile-button {
+     float: left;
+     cursor: pointer;
+}
