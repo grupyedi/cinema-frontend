@@ -50,19 +50,46 @@
          var html = $("#"+id).append(`<ol class="carousel-indicators"></ol><div class="carousel-inner"></div>      <a class="carousel-control-prev" href="#${id}" role="button" data-slide="prev">          <span class="carousel-control-prev-icon" aria-hidden="true"></span>          <span class="sr-only">Previous</span>      </a>      <a class="carousel-control-next" href="#${id}" role="button" data-slide="next">          <span class="carousel-control-next-icon" aria-hidden="true"></span>          <span class="sr-only">Next</span>      </a>`);
          let indicators = html.find('.carousel-indicators');
          let carousel = html.find('.carousel-inner')
+         idOfpicture=0
          images.forEach((e,i)=>{
-            radioButtons = '<form><label class="radio-inline"><input type="radio" name="optradio" checked>Option 1</label><label class="radio-inline"><input type="radio" name="optradio">Option 2</label><label class="radio-inline"><input type="radio" name="optradio">Option 3</label></form>';
-            allTimes = '<div id="outer">'
-            for (let index = 0; index < times.length; index++) {allTimes += '<button onclick="chooseCinema()" style="cursor: pointer;">' + times[index] +' </button>'}
-            allTimes += '</div>'
-            var activeclass = i == 0 ? "active":"";
+            radioButtons = '<form><label class="radio-inline"><input type="radio" value="0-18" name="optradio-' + idOfpicture + '" checked>0-18(18 not included)</label><label class="radio-inline"><input type="radio"  value="18-65" name="optradio-' + idOfpicture + '">18-65 (65 not included)</label><label class="radio-inline"><input type="radio" value="65+" name="optradio-' + idOfpicture + '">65+</label></form>';
+            var allTimes = '<div style="max-width=50%">';
+            for (let index = 0; index < times.length; index++) {
+                allTimes += '<input type="checkbox" name="myCheckbox" class ="times" value="'+ times[index]+'" onclick="selectOnlyThis(this)" />'+times[index];
+            }
+            allTimes+='</div>'
+            button = '<button type="button" id="no-button" class="btn btn-secondary btn-lg btn-block" onclick="displayRadioValues('+idOfpicture+');">Buy Ticket!</button>'
+            var activeclass = i == 0 ? "active":""; 
             indicators.append('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'" class="'+activeclass+'"></li>');
-            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text"><h4>'+radioButtons +'</h4>'+ allTimes+ '</div></div></div></div></div>');
+            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text"><h4>'+radioButtons +'</h4>'+ allTimes +''+ button + '</div></div></div></div></div>');
+            idOfpicture++;
          })
 
         }      
-        function chooseCinema() {
+        function displayRadioValues(id,numberoftimes) { 
+            console.log(id)
+            var ele = document.getElementsByName('optradio-' + id); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                if(ele[i].checked) 
+                console.log(ele[i].value)
+            }
+
+            var checks = document.getElementsByClassName('times');
+            var str = '';
+            for ( i = 0; i < checks.length; i++) {
+                if ( checks[i].checked === true ) {
+                    str += checks[i].value + " ";
+                }
+            }
             
+        } 
+        function selectOnlyThis(id){
+            var myCheckbox = document.getElementsByName("myCheckbox");
+            Array.prototype.forEach.call(myCheckbox,function(el){
+                el.checked = false;
+            });
+            id.checked = true;
         }
     </script>
 </body>
