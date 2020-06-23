@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Ticket</title>
+</head>
+<link rel="stylesheet" href="../css/profile.css">
+<body onload=getItems()>
+    <button class="buttonBck" onclick="goBack()">Go Back</button>
+    <h1>
+        Buy Ticket
+    </h1>
+    <p id="printInterval"></p>
+    <script>
+        function getItems(){
+            var interval = localStorage.getItem('interval');
+            var times = localStorage.getItem('times');
+            var idOfCinema = localStorage.getItem('ifOfcinema');
+            document.getElementById('printInterval').innerHTML = interval + ' ' + times + ' ' + idOfCinema
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
