@@ -40,3 +40,11 @@ function get_history(id){
         document.getElementById("history").innerHTML = text;
         
 }
+
+function logout(buttonId) {
+    localStorage.clear()
+    goBack()
+}
+function goBack() {
+    window.history.back();
+}

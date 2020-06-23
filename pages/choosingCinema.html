@@ -12,7 +12,10 @@
 <script src="../js/loader.js"></script>
 <script src="../js/openWindow.js"></script>
 <script>
-    localStorage.setItem('isLogin', 'true');
+    if(!checkIsLogin()){
+        sessionStorage.setItem('isLogin', 'false');
+        console.log('loginfalse')
+    }
 </script>
 <body onload="myFunction();" style="margin:0;">
     <div id="loader"></div>
@@ -61,7 +64,7 @@
             button = '<button type="button" id="no-button" class="btn btn-secondary btn-lg btn-block" onclick="displayRadioValues('+idOfpicture+');">Buy Ticket!</button>'
             var activeclass = i == 0 ? "active":""; 
             indicators.append('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'" class="'+activeclass+'"></li>');
-            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text"><h4>'+radioButtons +'</h4>'+ allTimes +''+ button + '</div></div></div></div></div>');
+            carousel.append('<div class="carousel-item '+activeclass+'"><div class="container"><div class="col-md-12"><img  src="'+e+'" alt= "Slide" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"><div class="middle"><div class="text"><h4>'+radioButtons +'</h4>'+ allTimes +''+ button + '<p id="caution"></p></div></div></div></div></div>');
             idOfpicture++;
          })
 
@@ -69,25 +72,35 @@
         function displayRadioValues(id,numberoftimes) { 
             console.log(id)
             var ele = document.getElementsByName('optradio-' + id); 
-              
+            var interval;
             for(i = 0; i < ele.length; i++) { 
                 if(ele[i].checked) 
-                console.log(ele[i].value)
+                    interval = ele[i].value;
             }
 
             var checks = document.getElementsByClassName('times');
-            var str = '';
+            var times = '';
             for ( i = 0; i < checks.length; i++) {
                 if ( checks[i].checked === true ) {
-                    str += checks[i].value + " ";
+                    times += checks[i].value + " ";
                 }
             }
-            
+            if(checkIsLogin()){
+                localStorage.setItem('interval', interval);
+                localStorage.setItem('times', times)
+                localStorage.setItem('ifOfcinema', id)
+                let win = remote.getCurrentWindow()
+                const modalPath = path.join('file://', __dirname, './ticketPage.html')
+                win.loadURL(modalPath)
+            }else{
+                alert("Not Logged In");
+            }
         } 
         function selectOnlyThis(id){
             var myCheckbox = document.getElementsByName("myCheckbox");
             Array.prototype.forEach.call(myCheckbox,function(el){
-                el.checked = false;
+                if(id!== 0)
+                    el.checked = false;
             });
             id.checked = true;
         }
