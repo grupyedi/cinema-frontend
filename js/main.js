@@ -11,7 +11,7 @@ function createWindow () {
         }
     })
     win.loadFile('../pages/choosingCinema.html')
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
     win.setResizable(false);
 
