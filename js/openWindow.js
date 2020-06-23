@@ -22,7 +22,7 @@ function openPopup(nameOfButton, ifYes, ifNo) {
                     nodeIntegration:true
                 } })
                 win.setAlwaysOnTop(true)
-                //win.webContents.openDevTools();
+                win.webContents.openDevTools();
                 win.on('close', function () { win = null })
                 win.loadURL(modalPath)
                 win.setResizable(false);

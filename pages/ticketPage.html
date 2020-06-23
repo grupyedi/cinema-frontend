@@ -5,12 +5,17 @@
     <title>Buy Ticket</title>
 </head>
 <link rel="stylesheet" href="../css/profile.css">
+<link rel="stylesheet" href="../css/ticketPage.css">
 <body onload=getItems()>
     <button class="buttonBck" onclick="goBack()">Go Back</button>
     <h1>
         Buy Ticket
     </h1>
     <p id="printInterval"></p>
+    <body>        
+        <button id="btnSeating" >Fill Seating</button>
+        <div id="messagePanel" class="messagePanel"></div>
+    </body>
     <script>
         function getItems(){
             var interval = localStorage.getItem('interval');
@@ -23,5 +28,6 @@
             window.history.back();
         }
     </script>
+    <script src="../js/ticketPage.js"></script>
 </body>
 </html>

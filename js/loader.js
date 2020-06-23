@@ -1,6 +1,6 @@
 function myFunction() {
     let myVar;
-    myVar = setTimeout(showPage, 1000);
+    myVar = setTimeout(showPage, 6000);
 }
 
 function showPage() {

@@ -11,3 +11,7 @@
 .btn btn-primary btn-lg btn-block{
      display: inline-block;
 }
+
+#no-button {
+     cursor: pointer;
+}
