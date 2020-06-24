@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron js/main.js"
   },
-  "author": "Melihcan Çilek",
+  "author": "Melihcan Çilek,Emirhan Uzun",
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^4.0.0-beta",
