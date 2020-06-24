@@ -10,7 +10,7 @@ function createWindow () {
             enableRemoteModule: true
         }
     })
-    win.loadFile('../pages/choosingCinema.html')
+    win.loadFile('pages/choosingCinema.html')
     win.webContents.openDevTools()
 
     win.setResizable(false);

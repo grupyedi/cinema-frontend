@@ -1,4 +1,4 @@
-const axios = require('axios')
+/*const axios = require('axios')
 
 const getBreeds = async (string) => {
   try {
@@ -15,3 +15,4 @@ const countBreeds = async (string) => {
 }
 
 countBreeds("movies")
+*/
