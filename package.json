@@ -14,7 +14,7 @@
     "jquery": "^3.5.1",
     "axios": "^0.19.2",
     "popper.js": "^1.16.1",
-    "electron": "^9.0.5",
+    "electron": "^18.3.7",
     "electron-packager": "^14.2.1"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "jquery": "^3.5.1",
     "axios": "^0.19.2",
     "popper.js": "^1.16.1",
-    "electron": "^9.0.5",
+    "electron": "^18.3.7",
     "electron-packager": "^14.2.1"
   }
 }
